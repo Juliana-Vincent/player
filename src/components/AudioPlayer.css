@@ -1,0 +1,463 @@
+@font-face {
+    font-family: manropeRegular;
+    src: url('fonts/manrope.regular.otf');
+}
+
+@font-face {
+    font-family: manropeBold;
+    src: url('fonts/manrope.bold.otf');
+}
+
+#currentTime, #duration, .speed-option, p {
+    color: #ffffff;
+    font-family: manropeRegular;
+    font-size: 16px;
+}
+
+.arrowText, .speed p {
+    font-family: manropeBold;
+}
+
+body {
+    background-color: rgb(24, 24, 24);
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.container {
+    width: 922px;
+    display: flex;
+    justify-content: center;
+}
+
+#volumeControl {
+    appearance: none;
+    width: 131px; 
+    height: 5px; 
+    background: rgb(92, 92, 92);
+    background-image: url('img/Line 54.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    outline: none;
+    border-radius: 10px; 
+    transition: background 0.3s; 
+}
+
+#volumeControl::-webkit-slider-thumb {
+    -webkit-appearance: none; 
+    appearance: none;
+    width: 30px;
+    height: 30px;
+    background-color: #4545ff;
+    background-image: url('img/Line 54.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    transition: background 0.3s; 
+}
+
+.volumeControl::-webkit-slider-thumb {
+    background-color: var(--thumb-color);
+}
+
+#volumeControl::-moz-range-thumb {
+    width: 30px;
+    height: 30px;
+    background-color: #4545ff;
+    background-image: url('img/Line 54.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    transition: background 0.3s;
+}
+
+.volume {
+    display: flex;
+    align-items: center;
+    transform: translateY(-16px);
+    gap: 19px;
+}
+
+.volume img {
+    width: 36px;
+    height: 28px;
+}
+
+.volume img {
+    opacity: 0.7;
+    transition: opacity 0.3s ease; 
+}
+
+.volume img:hover {
+    opacity: 1;
+}
+
+.progress-wrapper {
+    position: absolute;
+    top: 115px;
+    width: 95%;
+    height: 25px;
+    margin: 20px 0;
+}
+
+.progress-container {
+    position: absolute;
+    width: 100%;
+    height: 25px;
+    display: flex;
+    gap: 2px;
+    pointer-events: none;
+    transform: rotateX(180deg);
+}
+
+.rectangle {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    top: 50px;
+    width: 100%;
+    height: 160px;
+    background: rgb(36, 36, 36);
+    border-radius: 25px;
+    padding: 0 25px;
+}
+
+.progress-container .rect {
+    width: 5px;
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.5);
+    transition: background-color 0.3s ease, height 0.3s ease;
+}
+
+.progress-container .rect.hover-left {
+    background-color: rgba(69, 69, 255, 0.5);
+}
+
+.progress-container .rect.played {
+    background-color: #4545FF;
+}
+
+#progressBar {
+    width: 100%;
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    z-index: 1;
+}
+
+#progressBar::-webkit-slider-runnable-track {
+    height: 25px;
+    background: transparent;
+}
+
+#progressBar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 0;
+    height: 0;
+    background: transparent;
+}
+
+#progressBar::-moz-range-thumb {
+    width: 0;
+    height: 0;
+    background: transparent;
+}
+
+.hover-rect {
+    position: absolute;
+    background-color: rgb(55, 55, 55);
+    color: white;
+    font-size: 14px;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 5px;
+    z-index: 10;
+    font-family: manropeRegular;
+}
+
+.playing-container {
+    transform: translateY(-17px);
+    width: 206px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+button {
+    border: none;
+    background: none;
+    outline: none;
+}
+
+#playPauseBtn {
+    width: 84px;
+    height: 84px;
+    background-image: url('img/roundbg.svg');
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#playPauseBtn:hover {
+    width: 92px;
+    height: 92px;
+}
+
+#playPauseBtn img {
+    width: 28px;
+    height: 33px;
+}
+
+.arrow, .arrow1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 56px;
+    height: 56px;
+    color: rgba(255, 255, 255);
+    opacity: 0.7;
+    position: relative;
+}
+
+.arrowText {
+    position: absolute;
+    height: 16px;
+}
+
+.arrow:hover, .arrow1:hover {
+    opacity: 1;
+}
+
+.time {
+    width: 95%;
+    height: 44px;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 105px;
+}
+
+.speed {
+    transform: translateY(-21px);
+    width: 72px;
+    height: 40px;
+    background-color: rgb(49, 49, 49);
+    border-radius: 11px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    gap: 9px;
+    z-index: 1;
+}
+
+.shevron {
+    transition: transform 0.3s;
+}
+
+.speed.clicked .shevron {
+    transform: rotate(180deg); 
+}
+
+.speed:hover {
+    background-color: rgb(49, 49, 49);
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 45px;
+    left: 0;
+    background-color: rgb(49, 49, 49);
+    width: 72px;
+    border-radius: 11px;
+    z-index: 2;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.speed-option {
+    padding: 5px 20px;
+    opacity: 0.7;
+    text-align: start;
+    border-radius: 11px;
+}
+
+.speed-option:hover {
+    background-color: rgb(75, 75, 75);
+    border-radius: 0%;
+    opacity: 1;
+}
+
+.speed.show .dropdown-content {
+    display: block;
+}
+
+.links-container {
+    position: absolute;
+    display: flex;
+    justify-content: flex-end;
+    top: 230px;
+    max-width: 886px;
+    width: 95%;
+}
+
+.links {
+    color: rgb(153, 153, 153);
+    display: flex;
+    align-items: center;
+    gap: 22px; 
+}
+
+.links p {
+    color: #FFFFFFB3;
+}
+
+.links a {
+    position: relative;
+    display: inline-block;
+}
+
+.links img {
+    width: 34px;
+    height: 34px;
+    background: none;
+    transition: transform 0.3s; 
+}
+
+.links a:hover::before {
+    content: "";
+    position: absolute;
+    top: -10px; 
+    left: -10px; 
+    width: 54px;
+    height: 54px;
+    background-image: url('img/links-bg.svg');
+    background-size: cover;
+    background-color: rgb(37, 37, 37); 
+    border-radius: 27px;
+    z-index: -1; 
+}
+
+@media (max-width: 360px) {
+    .container {
+        max-width: 360px;
+    }
+    
+    .rectangle {
+        height: 116px;
+        max-width: 320px;
+        padding: 0 11px;
+        border-radius: 11px;
+    }
+
+    .time {
+        left: 11px;
+        right: 11px;
+    }
+
+    #volumeControl {
+        display: none;
+    }
+
+    .volume img {
+        width: 21px;
+    }
+
+    .playing-container {
+        width: 140px;
+    }
+
+    .arrow, .arrow1 {
+        width: 27px;
+        height: 27px;
+    }
+
+    .arrowText {
+        height: 11px;
+        font-size: 11px;
+    }
+
+    #playPauseBtn img {
+        width: 19px;
+    }
+
+    #playPauseBtn {
+        width: 56px;
+        height: 56px;
+    }
+
+    #playPauseBtn:hover {
+        width: 56px;
+        height: 56px;
+    }
+
+    .time {
+        top: 80px;
+        width: calc(100% - 22px);
+    }
+
+    #currentTime, #duration {
+        font-size: 11px;
+    }
+
+    .speed {
+        width: 48px;
+        height: 26px;
+        border-radius: 7px;
+        gap: 9px;
+    }
+
+    .speed p {
+        font-size: 11px;
+    }
+
+    .speed-option {
+        padding: 6px 14px;
+        font-size: 11px;
+    }
+
+    .dropdown-content {
+        top: 30px;
+        width: 48px;
+    }
+
+    .progress-wrapper {
+        top: 71px;
+        width: 93%;
+    }
+
+    #progressBar {
+        height: 13px;
+    }
+
+    .links-container {
+        top: 180px;
+    }
+
+    .links {
+        gap: 11px;
+    }
+
+    .links p {
+        font-size: 11px;
+    }
+
+    .links img {
+        width: 17px;
+        height: 17px;
+    }
+}

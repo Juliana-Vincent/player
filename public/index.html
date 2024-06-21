@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Audio Player</title>
+    <link rel="stylesheet" href="/src/components/AudioPlayer.css">
+</head>
+<body id="root">
+    <div class="container">
+        <div class="rectangle">
+            <div class="volume">
+                <img src="img/volume-light.svg" alt="volume" id="volumeImg">
+                <input type="range" id="volumeControl" min="0" max="1" step="0.01" value="1">
+            </div>
+            <div class="progress-wrapper">
+                <audio id="myAudio" src="Ghostemane-Lady-Madini-slowed-reverb.m4a"></audio>
+                <div id="progressContainer" class="progress-container"></div>
+                <input id="progressBar" type="range" min="0" value="0" step="1">
+            </div>
+            <div class="playing-container">
+                <div class="arrow" id="rewindBackward">
+                    <img src="img/arrow.svg" id="rotateImage" alt="arrow">
+                    <p class="arrowText">10</p>
+                </div>
+                <button id="playPauseBtn">
+                    <img id="playPauseImg" src="img/play.svg" alt="play">
+                </button>
+
+                <div class="arrow1" id="rewindForward">
+                    <img src="img/arrow1.svg" id="rotateImage1" alt="arrow">
+                    <p class="arrowText">10</p>
+                </div>
+            </div>
+            <div class="speed">
+                <p>1×</p>
+                <img class="shevron" src="img/shevron.svg" alt="speed">
+                <div class="dropdown-content">
+                    <div class="speed-option">0.5×</div>
+                    <div class="speed-option">0.75×</div>
+                    <div class="speed-option">1×</div>
+                    <div class="speed-option">1.25×</div>
+                    <div class="speed-option">1.5×</div>
+                    <div class="speed-option">1.75×</div>
+                    <div class="speed-option">2×</div>
+                </div>
+            </div>
+            <div class="time">
+                <span id="currentTime">0:00</span>
+                <span id="duration">0:00</span>
+            </div>
+        </div>
+
+        <div class="links-container">
+            <div class="links">
+                <p>Poslouchejte na</p>
+                <a href="https://www.apple.com/apple-podcasts/"><img src="img/apple-podcasts-icon.svg" alt=""></a>
+                <a href="https://podcasts.google.com/"><img src="img/googlepodcasts.svg" alt=""></a>
+                <a href="https://open.spotify.com/"><img src="img/spotify-icon.svg" alt=""></a>
+            </div>
+        </div> 
+    </div>
+    <script src="/src/components/AudioPlayer.jsx"></script>
+</body>
+</html>
