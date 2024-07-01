@@ -30,7 +30,7 @@ const AudioPlayer = () => {
 
   const generateRectangles = useCallback((duration) => {
     const screenWidth = window.innerWidth;
-    const totalRectangles = screenWidth <= 360 ? Math.floor(progressContainerRef.current.clientWidth / 3)
+    const totalRectangles = screenWidth <= 480 ? Math.floor(progressContainerRef.current.clientWidth / 3)
       : Math.floor(progressContainerRef.current.clientWidth / 5);
 
       progressContainerRef.current.innerHTML = '';
@@ -38,7 +38,8 @@ const AudioPlayer = () => {
     for (let i = 0; i < totalRectangles; i++) {
       const rect = document.createElement('div');
       rect.classList.add('rect');
-      rect.style.height = `${Math.random() * (screenWidth <= 360 ? 13 : 25) + 1}px`;
+      rect.style.height = `${Math.random() * (screenWidth <= 360 ? 13 : screenWidth <= 480 ? 19 : 25) + 1}px`;
+
   
       rect.addEventListener('mouseenter', () => {
         hoverRectRef.current.style.display = 'block';
