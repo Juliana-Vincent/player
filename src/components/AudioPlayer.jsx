@@ -12,6 +12,7 @@ const AudioPlayer = () => {
   const currentTimeDisplayRef = useRef(null);
   const durationDisplayRef = useRef(null);
 
+  const [audioEnded, setAudioEnded] = useState(false);
   const [transformStyle, setTransformStyle] = useState('none');
   const [transformStyle1, setTransformStyle1] = useState('none');
   const [volume, setVolume] = useState(1);
@@ -196,6 +197,11 @@ const AudioPlayer = () => {
       playPauseImgRef.current.alt = 'Play';
     }
   };
+  const handleAudioEnd = () => {
+    setAudioEnded(true);
+    playPauseImgRef.current.src = 'img/play.svg';
+    playPauseImgRef.current.alt = 'Play';
+  };
 
   const handleForwardClick = () => {
     const maxTime = audioRef.current.duration;
@@ -254,7 +260,7 @@ const AudioPlayer = () => {
             value={volume} onChange={handleVolumeChange} />
         </div>
         <div className="progress-wrapper">
-          <audio ref={audioRef} src="Ghostemane-Lady-Madini-slowed-reverb.m4a"></audio>
+          <audio ref={audioRef} onEnded={handleAudioEnd} src="Ghostemane-Lady-Madini-slowed-reverb.m4a"></audio>
           <div ref={progressContainerRef} className="progress-container"></div>
           <input
             ref={progressBarRef}
