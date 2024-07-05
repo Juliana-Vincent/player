@@ -291,7 +291,7 @@ const AudioPlayer = () => {
         </div>
         <div className={`speed ${showSpeedOptions ? 'show' : ''}`} onClick={() => setShowSpeedOptions(!showSpeedOptions)}>
           <p>{playbackRate}×</p>
-          <img className="shevron" src="img/shevron.svg" alt="speed" />
+          <img className={`shevron ${showSpeedOptions ? 'clicked' : ''}`} src="img/shevron.svg" alt="speed" />
           {showSpeedOptions && (
             <div className="dropdown-content">
               {['0.5×', '0.75×', '1×', '1.25×', '1.5×', '1.75×', '2×'].map((option) => (
