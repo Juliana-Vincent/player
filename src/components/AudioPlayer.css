@@ -301,6 +301,18 @@ button {
     border-radius: 0%;
     opacity: 1;
 }
+.speed-option:hover:first-child {
+    background-color: rgb(75, 75, 75);
+    border-top-left-radius: 11px;
+    border-top-right-radius: 11px;
+    opacity: 1;
+}
+.speed-option:hover:last-child {
+    background-color: rgb(75, 75, 75);
+    border-bottom-left-radius: 11px;
+    border-bottom-right-radius: 11px;
+    opacity: 1;
+}
 
 .speed.show .dropdown-content {
     display: block;
