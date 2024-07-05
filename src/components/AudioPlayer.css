@@ -269,7 +269,7 @@ button {
     transition: transform 0.3s;
 }
 
-.speed.clicked .shevron {
+.shevron.clicked {
     transform: rotate(180deg); 
 }
 
