@@ -1,0 +1,29 @@
+.time-container {
+  margin: 0 15px;
+}
+.time-margin {
+  position: absolute;
+  top: 105px;
+  max-width: 920px;
+  width: 100%;
+
+  @media (max-width: 499px) {
+    top: 75px;
+  }
+}
+.time {
+  display: flex;
+  justify-content: space-between;
+}
+
+#currentTime, #duration {
+  font-family: manrope;
+  font-weight: 400;
+  font-size: 16px;
+  color: #fff;
+
+
+  @media (max-width: 499px) {
+    font-size: 11px;
+  }
+}
