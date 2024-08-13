@@ -1,0 +1,68 @@
+.progress-wrapper {
+  position: absolute;
+  top: 133px;
+  max-width: 920px;
+  width: 100%;
+  height: 25px;
+
+  @media (max-width: 499px) {
+    top: 98px;
+    height: 5px;
+  }
+}
+
+.progress-container {
+  padding: 0 15px;
+  position: absolute;
+  width: 100%;
+  display: flex;
+  gap: 2px;
+  pointer-events: none;
+  transform: rotateX(180deg);
+}
+
+.progress-container .rect {
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.5);
+  transition: background-color 0.3s ease, height 0.3s ease;
+}
+
+.progress-container .rect.hover-left {
+  background-color: rgba(69, 69, 255, 0.5);
+}
+
+.progress-container .rect.played {
+  background-color: #4545FF;
+}
+
+#progressBar {
+  width: 100%;
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  z-index: 1;
+}
+
+#progressBar::-webkit-slider-runnable-track {
+  height: 25px;
+  background: transparent;
+}
+
+#progressBar::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 0;
+  height: 0;
+  background: transparent;
+}
+
+#progressBar::-moz-range-thumb {
+  width: 0;
+  height: 0;
+  background: transparent;
+}
+
